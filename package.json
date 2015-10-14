@@ -26,11 +26,15 @@
     "webpack-hot-middleware": "^2.0.0"
   },
   "repository" :
-  { "type" : "git"
-  , "url" : "https://github.com/beckys57/quote-zen.git"
-  }
+  { "type" : "git",
+    "url" : "https://github.com/beckys57/quote-zen.git"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "clean": "rimraf dist",
+    "build:webpack": "NODE_ENV=production webpack --config webpack.config.prod.js",
+    "build": "npm run clean && npm run build:webpack",
+    "start": "node devServer.js",
+    "lint": "eslint src"
   },
   "author": "BeckyS57",
   "license": "ISC"
