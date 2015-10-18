@@ -2,64 +2,107 @@
 <html>
     <head>
         <meta charset="utf-8"></meta>
-        <title>QuoteZen</title>
-       
-        
-         <style>body{
-    margin: 0;
-   box-sizing: border-box;
-   font-size:16px;
-   font-family: sans-serif;
+        <title>Chuck's Wisdom</title>
+       <link href='https://fonts.googleapis.com/css?family=Squada+One' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
+         <style>
+         
+body{
+  margin: 0;
+  box-sizing: border-box;
+  font-size:18px;
+  font-family: 'Squada One', cursive;
+  background: url(http://subtlepatterns2015.subtlepatterns.netdna-cdn.com/patterns/dark_embroidery.png);
+  background-color: #2d2d2d;
 }
-#app{
-  width: 50%;
-  margin: auto;
+
+
+.bgImg{
+  width: 100%;
+  height: auto;
+  margin: 1em 0;
+}
+
+.container{
+  position: relative;
   display: block;
+  width: 40em;
+  overflow: auto;
+  margin: auto;
+  padding: 2em 2.5rem 3.5rem;
+  background-color: white;
+  border: 1px solid black;
+}
+
+.quote-container{
+  width: 30rem;
+  height: auto;
+  background-color: black;
+  float:left;
+  padding: 2em;
+  border: 0.25rem solid black;
+}
+
+a{
+  cursor: pointer;
+  text-transform: none;
 }
 
 h1{
   text-align: center;
-  color: crimson;
-  margin:2em;
-}
-
-.quote{
-   font-size: 2em;
-    color: black;
-    display: block;
-    text-align: left;
-}
-.author{
-  font-style: italic;
-    color: navy;
-    display: block;
-    margin: 1em 0;
-    text-align: right;
-}
-.new{
-  display:block;
-  border: 2px solid crimson;
-  background-color: salmon;
-  color: white;
-  padding: 1em 5em;
-  margin: 2em auto;
+  color: black;
+  text-transform: uppercase;
+  font-size: 2.5em;
+  margin: 0.5em 0 1.25em;
+  padding: 0 0 0.4em;
+  border-bottom: 2px solid black;
   
 }
-.new:hover{
-  background-color: crimson;
-  color: salmon;
+
+.wisdom{
+  width: 100%;
+  font-size: 1.2em;
+  color: white;
+  text-align: center;
+  font-family: 'Oswald', sans-serif;
+}
+
+.more{
+  position: absolute;
+  top: 15.25em;
+  right: 2.5rem;
+  width: 4.35em;
+  padding: 0.5em 1em 0.1em;
+  border: 2px solid black;
+  background-color: white;
+  color: black;
+  font-size: 1.5em;
+  font-family: inherit;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.more:hover{
+  font-style: italic;
+}
+
+.source{
+  font-size: 0.6em;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  color: black;
+  padding: 0.2em;
 }
 </style>
     </head>
     <body>
-  <div>
-    <h1>QuoteZen</h1>
+  <div id="app">
+    
   </div>
-  <div id="app"></div>
   
   
-  <span style="z-index:50;font-size:0.9em;"><img src="http://theysaidso.com/branding/theysaidso.png" height="20" width="20" alt="theysaidso.com"/><a href="http://theysaidso.com" title="Powered by quotes from theysaidso.com" style="color: #9fcc25; margin-left: 4px; vertical-align: middle;">theysaidso.com</a></span>
-
+  
   <script src="/static/bundle.js"></script>
 </body>
 </html>

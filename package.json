@@ -9,7 +9,7 @@
     "webpack": "^1.12.2",
     "webpack-dev-server": "^1.12.0"
   },
-   "devDependencies": {
+  "devDependencies": {
     "babel-core": "^5.4.7",
     "babel-eslint": "^3.1.9",
     "babel-loader": "^5.1.2",
@@ -17,6 +17,7 @@
     "eslint": "^1.3.1",
     "eslint-plugin-react": "^2.3.0",
     "express": "^4.13.3",
+    "node": "0.0.0",
     "react-transform-catch-errors": "^1.0.0",
     "react-transform-hmr": "^1.0.0",
     "redbox-react": "^1.0.1",
@@ -25,9 +26,9 @@
     "webpack-dev-middleware": "^1.2.0",
     "webpack-hot-middleware": "^2.0.0"
   },
-  "repository" :
-  { "type" : "git",
-    "url" : "https://github.com/beckys57/quote-zen.git"
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/beckys57/quote-zen.git"
   },
   "scripts": {
     "clean": "rimraf dist",

@@ -3,7 +3,6 @@ import React from 'react';
 
 
 /*eslint-disable*/
-
 var quotes=quoteInit()
 
 
@@ -20,47 +19,12 @@ function quoteInit(){
   var quotes = JSON.parse(request.response)
   var strippedQuotes = []
   quotes.value.forEach(function(quote){
-    strippedQuotes.push(quote.joke)
+    
+    if(quote.joke.length < 169) strippedQuotes.push(quote.joke.replace(/&quot;/g,'"'))
+    
   })
-  console.log("Value", request.status, quotes.value, strippedQuotes[0])
-  return strippedQuotes;
-}
-
-//Uses theysaidso, ran out after 10 ad day
-//quoteInit2();
-function quoteInit2(){
-  var request = new XMLHttpRequest();
-  request.open('GET', 'http://api.theysaidso.com/qod.js', false);
+  console.log(strippedQuotes)
   
-  request.send();
-  if(!request.status == 200){
-    return "Could not connect"
-  }
-  
-  var quotes = JSON.parse(request.response)
-  var strippedQuotes = []
-  quotes.value.forEach(function(quote){
-    strippedQuotes.push(quote.joke)
-  })
-  console.log("Value", quotes, request.status, quotes.value, strippedQuotes[0])
-  return strippedQuotes;
-}
-
-function quoteInit3(){
-  var request = new XMLHttpRequest();
-  request.open('GET', 'http://www.iheartquotes.com/api', false);
-  
-  request.send();
-  if(!request.status == 200){
-    return "Could not connect"
-  }
-  
-  var quotes = JSON.parse(request.response)
-  var strippedQuotes = []
-  quotes.value.forEach(function(quote){
-    strippedQuotes.push(quote.joke)
-  })
-  console.log("Value", quotes, request.status, quotes.value, strippedQuotes[0])
   return strippedQuotes;
 }
 
@@ -68,15 +32,22 @@ function quoteInit3(){
 var Quote = React.createClass({
   render: function(){
     return (
-      <span className="quote">"{this.props.content}"</span>
+      <span className="wisdom">{this.props.content}</span>
       )
   }
 })
 
-var Author = React.createClass({
+var ChuckShot = React.createClass({
   render: function(){
-    return (
-        <span className="author">~ {this.props.content}</span>
+    return(
+       <img className="bgImg" src="https://s-media-cache-ak0.pinimg.com/736x/38/d9/33/38d933cf6fd2ed9c6aa6b243bf554759.jpg"/>)
+  }
+})
+
+var imageCredit = React.createClass({
+  render: function(){
+    return(
+    <span className="source">Image used under a <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC BY-SA 2.0 license</a>. The source is<a href="https://www.flickr.com/photos/92147157@N07/8377019152"> here</a> </span>
       )
   }
 })
@@ -84,40 +55,42 @@ var Author = React.createClass({
 var App = React.createClass({
     getInitialState: function() {
       return {
-        qIndex: 0
+        qIndex: this.getNum()
       };
     },
-    newNum: function(){
+    getNum: function(){
       var max = quotes.length
+      return Math.floor(Math.random() * (max))
+    },
+    setNum: function(){
       this.setState({
-        qIndex: Math.floor(Math.random() * (max))
+        qIndex: this.getNum()
       });
       console.log(this.state.qIndex)
     },
     render: function() {
       var quote = quotes[this.state.qIndex];
-      console.log("quote", quote)
+      console.log("quote", quote, "length", quote.length)
         return (
-          <div>
-            <Quote content={quote} />
-            <Author content="Amos Dogg" />
-            <QuoteButton hit={this.newNum} />
-            <div>
-              <span>{this.state.count}</span>
-              
+          <div className="container">
+          
+            <h1>Hit me with your Norris stick</h1>
+            <div className="quote-container">
+              <ChuckShot />
+              <Quote content={quote} />
             </div>
+            <QuoteButton hit={this.setNum} />
+            <span className="source">Image used under a <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC BY-SA 2.0 license</a>. The source is<a href="https://www.flickr.com/photos/92147157@N07/8377019152"> here</a> </span>
           </div>
+          
         );
     }
 });
 
 var QuoteButton = React.createClass({
-  noo: function(){
-    console.log("HI")
-  },
   render: function(){
     return (
-      <button onClick={this.props.hit} className="new">New Quote</button>
+      <button onClick={this.props.hit} className="more">More Wisdom</button>
     )
   }
 })
