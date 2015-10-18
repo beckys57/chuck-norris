@@ -23,7 +23,6 @@ function quoteInit(){
     if(quote.joke.length < 169) strippedQuotes.push(quote.joke.replace(/&quot;/g,'"'))
     
   })
-  console.log(strippedQuotes)
   
   return strippedQuotes;
 }
