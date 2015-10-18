@@ -2,17 +2,64 @@
 <html>
     <head>
         <meta charset="utf-8"></meta>
-        <title>Quote Zen</title>
+        <title>QuoteZen</title>
+       
+        
+         <style>body{
+    margin: 0;
+   box-sizing: border-box;
+   font-size:16px;
+   font-family: sans-serif;
+}
+#app{
+  width: 50%;
+  margin: auto;
+  display: block;
+}
+
+h1{
+  text-align: center;
+  color: crimson;
+  margin:2em;
+}
+
+.quote{
+   font-size: 2em;
+    color: black;
+    display: block;
+    text-align: left;
+}
+.author{
+  font-style: italic;
+    color: navy;
+    display: block;
+    margin: 1em 0;
+    text-align: right;
+}
+.new{
+  display:block;
+  border: 2px solid crimson;
+  background-color: salmon;
+  color: white;
+  padding: 1em 5em;
+  margin: 2em auto;
+  
+}
+.new:hover{
+  background-color: crimson;
+  color: salmon;
+}
+</style>
     </head>
     <body>
   <div>
-    Your React tasks:
-    <ol>
-      <li>Change the value of the name prop passed to the Greeting componen
-      initial state of App. Set the state to an object with a count property. That count should have a value of 0.</li>
-    </ol>
+    <h1>QuoteZen</h1>
   </div>
-  <div class="react-app" id="app"></div>
+  <div id="app"></div>
+  
+  
+  <span style="z-index:50;font-size:0.9em;"><img src="http://theysaidso.com/branding/theysaidso.png" height="20" width="20" alt="theysaidso.com"/><a href="http://theysaidso.com" title="Powered by quotes from theysaidso.com" style="color: #9fcc25; margin-left: 4px; vertical-align: middle;">theysaidso.com</a></span>
+
   <script src="/static/bundle.js"></script>
 </body>
 </html>
